@@ -15,46 +15,36 @@ class Lexicon
     door bear princess cabinet
   ]
 
-  def self.scan(sentence) # Or just *sentence and skip next two lines.
-    @sentence = sentence.gets.chomp
-    @words = @sentence.split
-
-    @
+  def self.scan(sentence)
+    @words = sentence.split
+    @tuples = []
 
     @words.each do |word|
       token = type_of(word)
-
+      @tuples << [token, word]
     end
 
-    return
+    return @tuples
   end
 
-  private
-
-  def type_of(word)
-    lists = [@directions, @verbs, @stop_words, @nouns]
-
-    lists.each do |type|
-      type.each do |specific|
-        next unless word == specific
-        @result = type
-        break
-      end
-      break if @result
-    end
-    if @result == @directions
+  def self.type_of(word)
+    case
+    when @directions.include?(word)
       'direction'
-    elsif @result == @verbs
+    when @verbs.include?(word)
       'verb'
-    elsif @result == @stop_words
-      'stop word'
-    elsif @result == @nouns
+    when @stop_words.include?(word)
+      'stop'
+    when @nouns.include?(word)
       'noun'
+    when convert_number(word)
+      'number'
     else
       'error'
+    end
   end
 
-  def convert_number(object)
+  def self.convert_number(object)
     begin
       return Integer(object)
     rescue
