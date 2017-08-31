@@ -1,0 +1,18 @@
+<h1>Listing Animals</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @animals.each do |animal| %>
+    <tr>
+      <td><%= animal.name %></td>
+      <td><%= animal.text %></td>
+      <td><%= link_to "Show", animal_path(animal) %></td>
+      <td><%= link_to "Edit", edit_animal_path(animal) %></td>
+    </tr>
+  <% end %>
+</table>

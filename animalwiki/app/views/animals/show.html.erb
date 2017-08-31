@@ -1,0 +1,12 @@
+<p>
+  <strong>Name:</strong>
+  <%= @animal.name %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @animal.text %>
+</p>
+
+<%= link_to "Edit", edit_animal_path(@animal) %>
+<%= link_to "Back", animals_path %>
