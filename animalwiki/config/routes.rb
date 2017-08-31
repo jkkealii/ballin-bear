@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :animals
+  resources :animals do
+    resources :comments
+  end
 
   root to: 'welcome#index'
 
