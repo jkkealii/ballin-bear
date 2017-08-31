@@ -21,6 +21,9 @@ class Lexicon
 
     @words.each do |word|
       token = type_of(word)
+      if token == 'number'
+        word = convert_number(word)
+      end
       @tuples << [token, word]
     end
 
