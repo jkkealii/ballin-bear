@@ -4,6 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Text</th>
+    <th>Species</th>
     <th colspan="2"></th>
   </tr>
 
@@ -11,6 +12,7 @@
     <tr>
       <td><%= animal.name %></td>
       <td><%= animal.text %></td>
+      <td><%= animal.species %></td>
       <td><%= link_to "Show", animal_path(animal) %></td>
       <td><%= link_to "Edit", edit_animal_path(animal) %></td>
       <td><%= link_to "Destroy", animal_path(animal),
@@ -19,3 +21,5 @@
     </tr>
   <% end %>
 </table>
+
+<%= link_to "Home", root_path %>

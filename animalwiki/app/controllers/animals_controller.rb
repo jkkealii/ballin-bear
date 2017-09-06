@@ -1,4 +1,7 @@
 class AnimalsController < ApplicationController
+
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
   def index
     @animals = Animal.all
   end
@@ -45,6 +48,6 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :text)
+    params.require(:animal).permit(:name, :text, :species)
   end
 end
